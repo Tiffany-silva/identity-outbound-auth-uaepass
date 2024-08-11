@@ -276,8 +276,7 @@ public class UAEPassAuthenticator extends AbstractApplicationAuthenticator
             }
 
         } catch (UAEPassAuthnFailedException e) {
-            throw new AuthenticationFailedException(UAEPassAuthenticatorConstants.ErrorMessages.
-                    AUTHENTICATION_FAILED_PROCESSING_ADDITIONAL_QUERY_PARAMS.getCode(), UAEPassAuthenticatorConstants.
+            throw new AuthenticationFailedException(UAEPassAuthenticatorConstants.
                     ErrorMessages.AUTHENTICATION_FAILED_PROCESSING_ADDITIONAL_QUERY_PARAMS.getMessage(), e);
         } catch (IOException e) {
             LOG.error("Authorization request building failed.");
@@ -286,8 +285,7 @@ public class UAEPassAuthenticator extends AbstractApplicationAuthenticator
                     UAEPassAuthenticatorConstants.ErrorMessages.AUTHENTICATION_FAILED_ENV_SELECTION.getMessage(), e);
         } catch (OAuthSystemException e) {
             LOG.error("Unable to build the request with compulsory query parameters.");
-            throw new AuthenticationFailedException(UAEPassAuthenticatorConstants.ErrorMessages.
-                    AUTHENTICATION_FAILED_COMPULSORY_QUERY_PARAM_FAILURE.getCode(), UAEPassAuthenticatorConstants.
+            throw new AuthenticationFailedException(UAEPassAuthenticatorConstants.
                     ErrorMessages.AUTHENTICATION_FAILED_COMPULSORY_QUERY_PARAM_FAILURE.getMessage(), e);
         }
     }
@@ -349,17 +347,14 @@ public class UAEPassAuthenticator extends AbstractApplicationAuthenticator
             context.setSubject(authenticatedUser);
 
         } catch (UAEPassAuthnFailedException e) {
-            throw new AuthenticationFailedException(UAEPassAuthenticatorConstants.ErrorMessages.
-                    AUTHENTICATION_FAILED_RETRIEVING_OAUTH_CLIENT_RESPONSE.getCode(), UAEPassAuthenticatorConstants.
+            throw new AuthenticationFailedException(UAEPassAuthenticatorConstants.
                     ErrorMessages.AUTHENTICATION_FAILED_RETRIEVING_OAUTH_CLIENT_RESPONSE.getMessage(), e);
         } catch (UAEPassUserInfoFailedException e) {
-            throw new AuthenticationFailedException(UAEPassAuthenticatorConstants.ErrorMessages.
-                    AUTHENTICATION_FAILED_ACCESS_TOKEN_REQUEST_FAILURE.getCode(), UAEPassAuthenticatorConstants.
+            throw new AuthenticationFailedException(UAEPassAuthenticatorConstants.
                     ErrorMessages.AUTHENTICATION_FAILED_ACCESS_TOKEN_REQUEST_FAILURE.getMessage(), e);
         } catch (OAuthProblemException e) {
             LOG.error("OAuth authorize response failure.");
-            throw new AuthenticationFailedException(UAEPassAuthenticatorConstants.ErrorMessages.
-                    AUTHENTICATION_FAILED_AUTHORIZED_RESPONSE_FAILURE.getCode(), UAEPassAuthenticatorConstants.
+            throw new AuthenticationFailedException(UAEPassAuthenticatorConstants.
                     ErrorMessages.AUTHENTICATION_FAILED_AUTHORIZED_RESPONSE_FAILURE.getMessage(), e);
         }
     }
@@ -444,8 +439,7 @@ public class UAEPassAuthenticator extends AbstractApplicationAuthenticator
             }
         if (StringUtils.isBlank(authenticatedUserId)) {
             LOG.error("The authenticated user id is empty.");
-            throw new AuthenticationFailedException(UAEPassAuthenticatorConstants.ErrorMessages.
-                    USER_ID_NOT_FOUND_IN_ID_TOKEN_SENT_BY_FEDERATED_IDP.getCode(),
+            throw new AuthenticationFailedException(
                     UAEPassAuthenticatorConstants.ErrorMessages.USER_ID_NOT_FOUND_IN_ID_TOKEN_SENT_BY_FEDERATED_IDP.
                             getMessage());
         }
@@ -522,8 +516,7 @@ public class UAEPassAuthenticator extends AbstractApplicationAuthenticator
                 }
             }
         } catch (UserStoreException e) {
-            throw new AuthenticationFailedException(UAEPassAuthenticatorConstants.
-                    ErrorMessages.RETRIEVING_MULTI_ATTRIBUTE_SEPARATOR_FAILED.getCode(),
+            throw new AuthenticationFailedException(
                     UAEPassAuthenticatorConstants.ErrorMessages.RETRIEVING_MULTI_ATTRIBUTE_SEPARATOR_FAILED.
                             getMessage(), AuthenticatedUser.
                     createFederateAuthenticatedUserFromSubjectIdentifier(authenticatedUserId), e);
